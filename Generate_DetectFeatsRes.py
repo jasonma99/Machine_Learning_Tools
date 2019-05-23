@@ -15,20 +15,9 @@ Output: One image for each convolutional layer.
 
 def main():
     # ==========================================Please Modify Information Below=========================================
-    # MODEL_FILE = r'C:\Users\ecl22931\VisExps\Models\detection_D1.5_L\weights_epoch1500_valLoss161.hdf5'
-    # MODEL_FILE = r'C:\Users\ecl22931\VisExps\Models\detection_D1.7_L\weights_epoch1200_valLoss165.hdf5'
-    # MODEL_FILE = r'C:\Users\ecl22931\VisExps\Models\detection_D2.4_S\D2.4_epoch850_valLoss164.hdf5'
-    MODEL_FILE = r'C:\Users\Public\IPR\VisExps\Models\detection_D1.5_L\weights_epoch1500_valLoss161.hdf5'
-
-    # srcDir = r'C:\Users\ecl22931\VisExps\ROI_imgs\20190311_134926\TF_classification-25-2.558\C1+C1_Pose'
-    # srcDir = r'C:\Users\ecl22931\VisExps\ROI_imgs\20190326_110143\TF_classification-60-2.821'
-    # srcDir = r'C:\Users\ecl22931\VisExps\ROI_imgs\20190312_105933\TF_classification-35-2.120'
-    srcDir = r'C:\Users\Public\IPR\VisExps\ROI_imgs\20190311_134926\TF_classification-25-2.558'
-
-    # resultPath = r'C:\Users\ecl22931\VisExps\DetectFeatsRes\detection_D1.5_L'
-    # resultPath = r'C:\Users\ecl22931\VisExps\DetectFeatsRes\detection_D1.7_L'
-    # resultPath = r'C:\Users\ecl22931\VisExps\DetectFeatsRes\detection_D2.4_S'
-    resultPath = r'C:\Users\Public\IPR\VisExps\DetectFeatsRes\detection_D1.5_L'
+    MODEL_FILE = r'Models\detection_D1.5_L\weights_epoch1500_valLoss161.hdf5'
+    srcDir = r'VisExps\ROI_imgs\20190311_134926\TF_classification-25-2.558'
+    resultPath = r'VisExps\DetectFeatsRes\detection_D1.5_L'
 
     # for D1.5L and D1.7L
     layer_names = ['conv_11', 'conv_12', 'conv_13', 'conv_21', 'conv_22', 'conv_23', 'conv_31', 'conv_32', 'conv_33',

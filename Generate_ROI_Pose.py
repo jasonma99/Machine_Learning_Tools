@@ -21,39 +21,39 @@ import cv2
 
 def main():
 
-    # sequence_Data = False
-    # CSE_BaseFolder = r'C:\Users\Public\IPR\After_CSE\20190410_225624\TF_classification_focls-20-2.655'
-    # lists = sorted(os.listdir(CSE_BaseFolder))
+    # # For non-sequence Data
+    # CSE_BaseFolder = r'C:\Users\Public\IPR\After_CSE'
+    # # lists = sorted(os.listdir(CSE_BaseFolder))
     # lists = ['20190423_132058_20190411_154558_CYCLE1_OFFICIAL',
     #          '20190423_132413_20190411_164820_C2_left_5Regions',
     #          '20190423_132454_20190411_165531_C2_5Regions',
     #          ]
-    # only the images in CSE outputs will be used to crop ROI
-    # original_imgs = [r'C:\Users\Public\IPR\DataFromServer\Data\fromEdge\DL_Datasets\Dataset_CSE_E2E_C1_C2',
-    #                  r'C:\Users\Public\IPR\DataFromServer\Data\fromEdge\DL_Datasets\Dataset_CSE_E2E_C2',
-    #                  r'C:\Users\Public\IPR\DataFromServer\Data\fromEdge\DL_Datasets\Dataset_CSE_E2E_C2',
+    # # only the images in CSE outputs will be used to crop ROI
+    # original_imgs = [r'DataFromServer\Data\fromEdge\DL_Datasets\Dataset_CSE_E2E_C1_C2',
+    #                  r'DataFromServer\Data\fromEdge\DL_Datasets\Dataset_CSE_E2E_C2',
+    #                  r'DataFromServer\Data\fromEdge\DL_Datasets\Dataset_CSE_E2E_C2',
     #                  ]
-    # !!!!!!!!!!!!!!!!!!Check if the output folder is already exist before running the code!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    # path_ROI = r'C:\Users\Public\IPR\VisExps\ROI_imgs\20190410_225624\TF_classification_focls-20-2.655'
-    # The pose_name information must be the same as the info originally specified in the E2E evaluation
+    # # !!!!!!!!!!!!!!!!!!Check if the output folder is already exist before running the code!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    # path_ROI = r'VisExps\ROI_imgs'
+    # # The pose_name information must be the same as the info originally specified in the E2E evaluation
     # pose_name = '225624_20'
     # sequence_Data = False
     # generate_OTHERS = True
     # dR_list = [10]      # Most times dR only = 10
 
-    # sequence_Data = True:
-    CSE_BaseFolder = r'C:\Users\Public\IPR\After_CSE\ROI1420TH+DL1.5+DLTH1.5'
-    # for using Sorted lists: need to make sure the order of the datasets of CSE_BaseFolder should be the same as datasets under original_imgs
+    # For sequence Data
+    CSE_BaseFolder = r'After_CSE\ROI1420TH+DL1.5+DLTH1.5'
+    # for using Sorted lists: need to make sure the order of the datasets of CSE_BaseFolder should be the same as
+    # datasets under original_imgs
     # lists = sorted(os.listdir(CSE_BaseFolder))
-    # original_imgs = sorted(os.listdir(r'C:\Users\Public\IPR\DataFromServer\Data\fromEdge\For_Example'))
-
+    # original_imgs = sorted(os.listdir(r'DataFromServer\Data\fromEdge\For_Example'))
     lists = ['20190409_141024_click_leftbottom_570377438047',
              '20190409_141749_doubleclick_leftbottom_570377646410'
              ]
-    original_imgs = [r'C:\Users\Public\IPR\DataFromServer\Data\fromEdge\20190128_Susan_Sequence_Data\click_leftbottom_570377438047',
-                     r'C:\Users\Public\IPR\DataFromServer\Data\fromEdge\20190128_Susan_Sequence_Data\doubleclick_leftbottom_570377646410'
+    original_imgs = [r'DataFromServer\Data\fromEdge\20190128_Susan_Sequence_Data\click_leftbottom_570377438047',
+                     r'DataFromServer\Data\fromEdge\20190128_Susan_Sequence_Data\doubleclick_leftbottom_570377646410'
                      ]
-    path_ROI = r'C:\Users\Public\IPR\VisExps\ROI_imgs\ROI1420TH+DL1.5+DLTH1.5'
+    path_ROI = r'VisExps\ROI_imgs\ROI1420TH+DL1.5+DLTH1.5'
     pose_name = 'ROI1484TH+DL1.5+DLTH1.5'
     sequence_Data = True
     generate_OTHERS = True
@@ -139,17 +139,6 @@ def main():
                         if not os.path.exists(save_dir):
                             os.makedirs(save_dir)
 
-                        # For multiple detections in one image. I've seen some ones have four detections and I know the
-                        # code sucks, you can upgrade it.
-                        # if os.path.isfile(save_path):
-                        #     save_path = save_path.replace('_c1', '-02_c1')
-                        #     if os.path.isfile(save_path):
-                        #         save_path = save_path.replace('-02_c1', '-03_c1')
-                        #         if os.path.isfile(save_path):
-                        #             save_path = save_path.replace('-03_c1', '-04_c1')
-                        #             if os.path.isfile(save_path):
-                        #                 save_path = save_path.replace('-04_c1', '-05_c1')
-
                         counter = 1
                         check_path = save_path.replace('_c1_', '_{}_c1_')
                         while os.path.exists(save_path):
@@ -164,11 +153,10 @@ def main():
                         cv2.imwrite(save_path, cropped_C2)
                         print(save_path)
 
-                        # You can comment codes below, it may slow the code down
+                        # The code below is for checking the output
                         # cv2.imshow("cropped_C1", cropped_C1)
                         # cv2.imshow("cropped_C2", cropped_C2)
                         # cv2.waitKey(10)
-
 
 if __name__ == '__main__':
     main()

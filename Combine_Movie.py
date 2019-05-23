@@ -19,7 +19,7 @@ def concat_images(imga, imgb, orientation):
         new_img[:ha, :wa] = imga
         new_img[:hb, wa:wa+wb] = imgb
     # concatenate vertically
-    else:
+    elif orientation == 'vertical':
         max_width = np.max([wa, wb])
         total_height = ha+hb
         new_img = np.zeros(shape=(total_height, max_width, 3))
@@ -71,10 +71,9 @@ def make_movie(image_folder, video_name):
 
 
 if __name__ == '__main__':
-    # Original_path = r'C:\Users\Public\IPR\After_CSE\Sequence_Dev\20190320_103444_click_lefttop_570108590955\images\Raw_dR=10'
-    CSE_path = r'C:\Users\Public\IPR\After_CSE\ROI1420TH+DL1.5+DLTH1.5'
-    VisRes_path = r'C:\Users\Public\IPR\VisExps\VisRes\ROI1420TH+DL1.5+DLTH1.5'
-    combined_path = r'C:\Users\Public\IPR\VisExps\Combined\ROI1420TH+DL1.5+DLTH1.5'
+    CSE_path = r'After_CSE\ROI1420TH+DL1.5+DLTH1.5'
+    VisRes_path = r'VisExps\VisRes\ROI1420TH+DL1.5+DLTH1.5'
+    combined_path = r'VisExps\Combined\ROI1420TH+DL1.5+DLTH1.5'
     orientation = 'vertical'            # or 'horizontal', don't have to change, double check with Rui
 
     # ==================================================================================================================
